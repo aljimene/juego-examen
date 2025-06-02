@@ -1,0 +1,239 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff; /* Color de fondo suave */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea arriba */
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.game-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 1000px; /* Ancho máximo del contenedor */
+    margin-top: 20px; /* Espacio arriba */
+}
+
+.game-title {
+    color: #4a148c; /* Morado oscuro */
+    margin-bottom: 20px;
+}
+
+.score-board {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #e1bee7; /* Morado claro */
+    border-radius: 8px;
+    display: flex; /* Muestra puntajes en línea */
+    justify-content: space-around; /* Espacio entre equipos */
+    flex-wrap: wrap; /* Envuelve si hay muchos equipos */
+}
+
+.score-board div {
+    margin: 5px 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #311b92; /* Azul oscuro */
+}
+
+.turn-indicator {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #00796b; /* Verde azulado */
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columnas para categorías */
+    gap: 10px; /* Espacio entre celdas */
+}
+
+.category-title {
+    background-color: #7b1fa2; /* Morado */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    grid-column: span 1; /* Ocupa una columna */
+}
+
+.question-cell {
+    background-color: #ba68c8; /* Morado más claro */
+    color: white;
+    padding: 15px 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.question-cell:hover:not(.answered) {
+    background-color: #9c27b0; /* Morado al pasar el ratón */
+}
+
+.question-cell.answered {
+    background-color: #9e9e9e; /* Gris para preguntas respondidas */
+    cursor: not-allowed;
+    text-decoration: line-through;
+    color: #e0e0e0;
+}
+
+/* Overlay para la pregunta */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.question-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.question-text {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    color: #333;
+	font-weight: bold;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.option-button {
+    background-color: #ffb300; /* Ámbar */
+    color: #333;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.option-button:hover {
+    background-color: #ffa000; /* Ámbar oscuro */
+}
+
+.timer-display {
+    font-size: 3.5em; /* Aumenta este valor para hacer el tiempo más grande */
+    font-weight: bold;
+    color: #e74c3c; /* Un color rojo para el tiempo que corre */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.steal-button {
+    background-color: #00796b; /* Verde azulado */
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.steal-button:hover {
+    background-color: #004d40; /* Verde azulado oscuro */
+}
+
+.hidden {
+    display: none;
+}
+
+/* Resultados Finales */
+.final-results {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #c8e6c9; /* Verde muy claro */
+    border-radius: 8px;
+}
+
+.final-results h2 {
+    color: #2e7d32; /* Verde oscuro */
+    margin-bottom: 15px;
+}
+
+#final-rankings {
+    list-style: none;
+    padding: 0;
+}
+
+#final-rankings li {
+    background-color: #a5d6a7; /* Verde claro */
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    color: #1b5e20; /* Verde muy oscuro */
+}
+
+.restart-button {
+    background-color: #1976d2; /* Azul */
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.restart-button:hover {
+    background-color: #1565c0; /* Azul oscuro */
+}
+
+.current-attempt-team-name {
+    font-size: 1.5em; /* Un poco más grande que el texto normal */
+    font-weight: bold;
+    color: #0056b3; /* Un color azul que destaque */
+    margin-bottom: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee; /* Una pequeña línea para separarlo visualmente */
+}
+
+/* Puedes añadir este estilo para centrar los textos en el question-box si lo deseas */
+.question-box #timer-display,
+.question-box #question-text {
+    text-align: center;
+}

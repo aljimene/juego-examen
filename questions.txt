@@ -1,0 +1,36 @@
+Dogmas|100|¿Qué es la Eucaristía?|Una comida normal|El cuerpo y la sangre de Cristo|Una fiesta|Una oración|1
+Dogmas|200|¿Cuántas personas hay en la Santísima Trinidad?|Una|Dos|Tres|Cuatro|2
+Dogmas|300|¿Quién es la Madre de Jesús?|María Magdalena|Isabel|María|Marta|2
+Dogmas|400|¿Qué celebramos en la Navidad?|La muerte de Jesús|La resurrección de Jesús|El nacimiento de Jesús|Su bautismo|2
+Dogmas|500|¿Quién es el jefe de la Iglesia Católica?|El rey|El presidente|El Papa|El obispo|2
+Dogmas|600|¿Qué es un sacramento?|Una fiesta|Un signo sagrado que nos da la gracia de Dios|Una canción|Un libro|1
+Oración|100|¿Cómo empezamos a rezar?|Con un chiste|Haciendo la señal de la cruz|Con una carrera|Cantando|1
+Oración|200|¿Cuál es la oración que nos enseñó Jesús?|El Ave María|El Gloria|El Padrenuestro|La Salve|2
+Oración|300|¿A quién rezamos en el Ave María?|A Jesús|A San José|A la Virgen María|A un ángel|2
+Oración|400|¿Qué decimos al final de muchas oraciones?|Adiós|Hasta luego|Amén|Hola|2
+Oración|500|¿Dónde nos reunimos para rezar juntos en comunidad?|En el parque|En el cine|En la iglesia|En la piscina|2
+Oración|600|¿Por qué rezamos?|Para hablar con Dios y pedirle ayuda|Para aburrirnos|Para pedir juguetes|Para dormir|0
+Dogmas2|100|¿Qué es la Eucaristía?|Una comida normal|El cuerpo y la sangre de Cristo|Una fiesta|Una oración|1
+Dogmas2|200|¿Cuántas personas hay en la Santísima Trinidad?|Una|Dos|Tres|Cuatro|2
+Dogmas2|300|¿Quién es la Madre de Jesús?|María Magdalena|Isabel|María|Marta|2
+Dogmas2|400|¿Qué celebramos en la Navidad?|La muerte de Jesús|La resurrección de Jesús|El nacimiento de Jesús|Su bautismo|2
+Dogmas2|500|¿Quién es el jefe de la Iglesia Católica?|El rey|El presidente|El Papa|El obispo|2
+Dogmas2|600|¿Qué es un sacramento?|Una fiesta|Un signo sagrado que nos da la gracia de Dios|Una canción|Un libro|1
+Dogmas3|100|¿Qué es la Eucaristía?|Una comida normal|El cuerpo y la sangre de Cristo|Una fiesta|Una oración|1
+Dogmas3|200|¿Cuántas personas hay en la Santísima Trinidad?|Una|Dos|Tres|Cuatro|2
+Dogmas3|300|¿Quién es la Madre de Jesús?|María Magdalena|Isabel|María|Marta|2
+Dogmas3|400|¿Qué celebramos en la Navidad?|La muerte de Jesús|La resurrección de Jesús|El nacimiento de Jesús|Su bautismo|2
+Dogmas3|500|¿Quién es el jefe de la Iglesia Católica?|El rey|El presidente|El Papa|El obispo|2
+Dogmas3|600|¿Qué es un sacramento?|Una fiesta|Un signo sagrado que nos da la gracia de Dios|Una canción|Un libro|1
+Los Primeros Tiempos de la Biblia|100|¿Quiénes fueron los primeros hijos de Adán y Eva?|Caín y Abel|Moisés y Elías|Noé y Abraham|David y Salomón|0
+Los Primeros Tiempos de la Biblia|200|¿Qué trabajo tenía Abel?|Rey|Carpintero|Pastor|Pescador|2
+Los Primeros Tiempos de la Biblia|300|¿Qué hizo Caín con su hermano Abel?|Lo ayudó a construir una casa|Le dio comida|Lo llevó de viaje|Lo mató|3
+Los Primeros Tiempos de la Biblia|400|¿Cómo se llamaba el hombre al que Dios pidió construir un arca?|Abraham|Noé|Jacob|Isaías|1
+Los Primeros Tiempos de la Biblia|500|¿Cuántos animales de cada especie llevó Noé en el arca?|Uno|Cuatro|Dos|Diez|2
+Los Primeros Tiempos de la Biblia|600|¿Qué señal puso Dios en el cielo después del diluvio como promesa?|Un arcoíris|Una estrella|Una nube dorada|Un rayo de sol|0
+Varias|100|¿Cómo se llaman tus catequistas?|Virginia y Alejandro|Leticia y Alberto|Virginia y Alberto|Eva y Andrés|2
+Varias|200|¿Dónde se reúnen los cardenales para elegir al nuevo papa?|Catedral de San Pablo|Basílica del Santo Sepulcro|Iglesia de San Ignacio|Capilla Sixtina|3
+Varias|300|¿Cómo se llaman los dos sacerdores de la parroquia?|Gonzalo y Aloys|Gonzalo y Jean|Gonzalo y Kwame|Gonzalo y Emmanuel|0
+Varias|400|¿Qué decimos al final de muchas oraciones?|Adiós|Hasta luego|Amén|Hola|2
+Varias|500|¿Dónde nos reunimos para rezar juntos antes de subir a catequesis?|En la sacristía|En la nave central|En el coro|En la capilla|3
+Varias|600|¿Cómo se llama el cardenal español que visitó la parroquia?|Antonio Martínez|José Cobo|Luis Herrera|Francisco Rivas|1
