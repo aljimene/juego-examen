@@ -1,36 +1,36 @@
-Dogmas|100|¿Qué es la Eucaristía?|Una comida normal|El cuerpo y la sangre de Cristo|Una fiesta|Una oración|1
-Dogmas|200|¿Cuántas personas hay en la Santísima Trinidad?|Una|Dos|Tres|Cuatro|2
-Dogmas|300|¿Quién es la Madre de Jesús?|María Magdalena|Isabel|María|Marta|2
-Dogmas|400|¿Qué celebramos en la Navidad?|La muerte de Jesús|La resurrección de Jesús|El nacimiento de Jesús|Su bautismo|2
-Dogmas|500|¿Quién es el jefe de la Iglesia Católica?|El rey|El presidente|El Papa|El obispo|2
-Dogmas|600|¿Qué es un sacramento?|Una fiesta|Un signo sagrado que nos da la gracia de Dios|Una canción|Un libro|1
-Oración|100|¿Cómo empezamos a rezar?|Con un chiste|Haciendo la señal de la cruz|Con una carrera|Cantando|1
-Oración|200|¿Cuál es la oración que nos enseñó Jesús?|El Ave María|El Gloria|El Padrenuestro|La Salve|2
-Oración|300|¿A quién rezamos en el Ave María?|A Jesús|A San José|A la Virgen María|A un ángel|2
-Oración|400|¿Qué decimos al final de muchas oraciones?|Adiós|Hasta luego|Amén|Hola|2
-Oración|500|¿Dónde nos reunimos para rezar juntos en comunidad?|En el parque|En el cine|En la iglesia|En la piscina|2
-Oración|600|¿Por qué rezamos?|Para hablar con Dios y pedirle ayuda|Para aburrirnos|Para pedir juguetes|Para dormir|0
-Dogmas2|100|¿Qué es la Eucaristía?|Una comida normal|El cuerpo y la sangre de Cristo|Una fiesta|Una oración|1
-Dogmas2|200|¿Cuántas personas hay en la Santísima Trinidad?|Una|Dos|Tres|Cuatro|2
-Dogmas2|300|¿Quién es la Madre de Jesús?|María Magdalena|Isabel|María|Marta|2
-Dogmas2|400|¿Qué celebramos en la Navidad?|La muerte de Jesús|La resurrección de Jesús|El nacimiento de Jesús|Su bautismo|2
-Dogmas2|500|¿Quién es el jefe de la Iglesia Católica?|El rey|El presidente|El Papa|El obispo|2
-Dogmas2|600|¿Qué es un sacramento?|Una fiesta|Un signo sagrado que nos da la gracia de Dios|Una canción|Un libro|1
-Dogmas3|100|¿Qué es la Eucaristía?|Una comida normal|El cuerpo y la sangre de Cristo|Una fiesta|Una oración|1
-Dogmas3|200|¿Cuántas personas hay en la Santísima Trinidad?|Una|Dos|Tres|Cuatro|2
-Dogmas3|300|¿Quién es la Madre de Jesús?|María Magdalena|Isabel|María|Marta|2
-Dogmas3|400|¿Qué celebramos en la Navidad?|La muerte de Jesús|La resurrección de Jesús|El nacimiento de Jesús|Su bautismo|2
-Dogmas3|500|¿Quién es el jefe de la Iglesia Católica?|El rey|El presidente|El Papa|El obispo|2
-Dogmas3|600|¿Qué es un sacramento?|Una fiesta|Un signo sagrado que nos da la gracia de Dios|Una canción|Un libro|1
-Los Primeros Tiempos de la Biblia|100|¿Quiénes fueron los primeros hijos de Adán y Eva?|Caín y Abel|Moisés y Elías|Noé y Abraham|David y Salomón|0
-Los Primeros Tiempos de la Biblia|200|¿Qué trabajo tenía Abel?|Rey|Carpintero|Pastor|Pescador|2
-Los Primeros Tiempos de la Biblia|300|¿Qué hizo Caín con su hermano Abel?|Lo ayudó a construir una casa|Le dio comida|Lo llevó de viaje|Lo mató|3
-Los Primeros Tiempos de la Biblia|400|¿Cómo se llamaba el hombre al que Dios pidió construir un arca?|Abraham|Noé|Jacob|Isaías|1
-Los Primeros Tiempos de la Biblia|500|¿Cuántos animales de cada especie llevó Noé en el arca?|Uno|Cuatro|Dos|Diez|2
-Los Primeros Tiempos de la Biblia|600|¿Qué señal puso Dios en el cielo después del diluvio como promesa?|Un arcoíris|Una estrella|Una nube dorada|Un rayo de sol|0
-Varias|100|¿Cómo se llaman tus catequistas?|Virginia y Alejandro|Leticia y Alberto|Virginia y Alberto|Eva y Andrés|2
-Varias|200|¿Dónde se reúnen los cardenales para elegir al nuevo papa?|Catedral de San Pablo|Basílica del Santo Sepulcro|Iglesia de San Ignacio|Capilla Sixtina|3
-Varias|300|¿Cómo se llaman los dos sacerdores de la parroquia?|Gonzalo y Aloys|Gonzalo y Jean|Gonzalo y Kwame|Gonzalo y Emmanuel|0
-Varias|400|¿Qué decimos al final de muchas oraciones?|Adiós|Hasta luego|Amén|Hola|2
-Varias|500|¿Dónde nos reunimos para rezar juntos antes de subir a catequesis?|En la sacristía|En la nave central|En el coro|En la capilla|3
-Varias|600|¿Cómo se llama el cardenal español que visitó la parroquia?|Antonio Martínez|José Cobo|Luis Herrera|Francisco Rivas|1
+Partes de la Iglesia|100|¿Dónde se sienta la gente para escuchar la misa?|En el altar|En los bancos|En la sacristía|En el presbiterio|1
+Partes de la Iglesia|200|¿Cómo se llama la mesa donde el sacerdote consagra el pan y el vino?|La credencia|La pila bautismal|El ambón|El altar|3
+Partes de la Iglesia|300|¿Qué parte de la iglesia se utiliza para el bautismo?|El púlpito|El sagrario|La pila bautismal|El confesionario|2
+Partes de la Iglesia|400|¿Cómo se llama la sala donde el sacerdote se viste antes de la misa?|El sagrario|El ambón|La sacristía|El púlpito|2
+Partes de la Iglesia|500|¿Dónde se encuentra el Vía Crucis en una iglesia?|En el techo|En las paredes laterales|En el suelo|Detrás del altar|1
+Partes de la Iglesia|600|¿Qué elemento de la iglesia se utiliza para encender las velas de los fieles?|El cirio pascual|El sagrario|El bautisterio|El ambón|0
+La Biblia|100|¿Qué significa la palabra "Evangelio"?|Buenas noticias|Libro de leyes|Historias antiguas|Profecías|0
+La Biblia|200|¿Cuántos libros tiene el Nuevo Testamento?|27|39|46|73|0
+La Biblia|300|¿Qué libro de la Biblia narra el Éxodo del pueblo de Israel de Egipto?|Génesis|Números|Deuteronomio|Éxodo|3
+La Biblia|400|¿Quiénes son los cuatro evangelistas principales?|Pedro, Pablo, Juan, Santiago|Isaías, Jeremías, Ezequiel, Daniel|Mateo, Marcos, Lucas, Juan|Abraham, Moisés, David, Salomón|2
+La Biblia|500|¿Qué parte de la Biblia narra la vida de Jesús?|El Antiguo Testamento|Los Salmos|Los Evangelios|Las Cartas de San Pablo|2
+La Biblia|600|¿Qué apóstol escribió la mayor parte de las cartas en el Nuevo Testamento?|Pedro|Juan|Pablo|Santiago|2
+La Creación|100|¿Qué fue lo primero que Dios creó?|La luz|Los animales|Las plantas|El agua|0
+La Creación|200|¿De qué costilla creó Dios a Eva?|La izquierda|La derecha|Una costilla cualquiera|De la tierra|1
+La Creación|300|¿En qué día creó Dios al hombre y a los animales terrestres?|Primer día|Quinto día|Sexto día|Séptimo día|2
+La Creación|400|¿Qué significa que el hombre fue creado "a imagen y semejanza de Dios"?|Que somos idénticos a Él|Que tenemos inteligencia y libertad|Que somos perfectos|Que somos iguales a los ángeles|1
+La Creación|500|¿Dónde puso Dios a Adán y Eva después de crearlos?|En el desierto|En el Jardín del Edén|En el monte Sinaí|En un templo|1
+La Creación|600|¿Qué fruto comieron Adán y Eva que les prohibió Dios?|Una manzana|Uvas|El fruto del árbol del conocimiento del bien y del mal|Peras|2
+Los Primeros Tiempos|100|¿Cómo se llamaba el arca que construyó Noé?|Arca de la Alianza|Arca de la Salvación|Arca de Noé|Arca Sagrada|2
+Los Primeros Tiempos|200|¿Cuántos días y noches llovió durante el diluvio?|7 días y 7 noches|40 días y 40 noches|100 días y 100 noches|1 día y 1 noche|1
+Los Primeros Tiempos|300|¿Qué animal envió Noé del arca para ver si las aguas habían bajado?|Una paloma|Un águila|Un gorrión|Un lobo|0
+Los Primeros Tiempos|400|¿Quién es considerado el padre de las naciones?|Moisés|Abraham|David|Jacob|1
+Los Primeros Tiempos|500|Después del diluvio, ¿qué construyó Noé para ofrecer sacrificios a Dios?|Un arca pequeña|Un altar|Un templo|Una torre|1
+Los Primeros Tiempos|600|¿Cuál fue el nombre del hijo que Abraham tuvo con Sara?|Ismael|Isaac|Jacob|Esaú|1
+Profetas|100|¿Qué usó Moisés para convertir el agua en sangre?|Un asno|Una vara|Una serpiente|Un cordero|1
+Profetas|200|¿Qué mar se abrió para que los israelitas pudieran escapar de Egipto?|Mar Negro|Mar Muerto|Mar Rojo|Mar Mediterráneo|2
+Profetas|300|¿Qué le pidió Dios a Abraham que hiciera con su hijo Isaac?|Que lo enviara lejos|Que lo sacrificara|Que lo casara|Que lo educara en el templo|1
+Profetas|400|¿Qué señal le dio Dios a Moisés en la zarza ardiente para demostrar su poder?|Convirtió su bastón en una serpiente|Hizo llover maná|Dividió el mar|Hizo brotar agua de una roca|0
+Profetas|500|¿Quién fue el profeta que fue llevado al cielo en un carro de fuego?|Eliseo|Isaías|Elías|Jeremías|2
+Profetas|600|¿Qué milagro realizó Moisés cuando el pueblo tenía sed en el desierto?|Hizo llover maná del cielo|Hizo brotar agua de una roca|Multiplicó los peces|Convirtió el agua en vino|1
+Eucaristía|100|¿Qué significa la palabra Eucaristía?|Fiesta|Acción de gracias|Bendición|Sacrificio|1
+Eucaristía|200|¿Qué recibimos en la Primera Comunión?|Agua bendita|Un sacramento|Una bendición|Un regalo|1
+Eucaristía|300|¿Quién instituyó el sacramento de la Eucaristía?|San Pedro|Los Apóstoles|Jesús|La Iglesia|2
+Eucaristía|400|¿En qué momento de la misa se consagra el pan y el vino?|Al inicio|En la Liturgia de la Palabra|En la Liturgia Eucarística|Al final|2
+Eucaristía|500|¿Qué se convierte el pan y el vino en la Eucaristía?|Símbolos del cuerpo y sangre de Cristo|El Cuerpo y la Sangre de Jesús|Comida bendita|Un recuerdo de Jesús|1
+Eucaristía|600|¿Qué es la hostia antes de ser consagrada?|Un trozo de pan|Una galleta|Un dulce|Una oblea|0

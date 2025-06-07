@@ -1,20 +1,21 @@
 // --- Variables Globales ---
 const GAME_STATE_KEY = 'quizGameSaveState';
 let teams = [];
-let questions = [];
+let questions = []; // Array de arrays: questions[categoryIndex][questionIndex]
 let scores = [];
 let currentPlayerIndex = 0;
 let questionsAnsweredCount = 0;
 let totalQuestions = 0;
 
-let currentQuestion = null;
-let currentQuestionState = null;
-let currentAttemptPlayerIndex = null;
-let stealAttemptQueue = [];
+// Estado actual de la pregunta que se está respondiendo/consiguiendo
+let currentQuestion = null; // { categoryIndex, questionIndex, points, correctAnswerIndex }
+let currentQuestionState = null; // 'initial_attempt', 'steal_available', 'stealing'
+let currentAttemptPlayerIndex = null; // El índice del jugador que está intentando responder AHORA
+let stealAttemptQueue = []; // Cola de índices de jugadores para intentar conseguir puntos
 
 let timerInterval = null;
-const initialTimerDuration = 45;
-const stealTimerDuration = 15;
+const initialTimerDuration = 45; // Duración inicial para contestar una pregunta
+const stealTimerDuration = 15;  // Duración para el "Turbo de paso"
 let remainingTime = 0;
 
 // Referencias a elementos del DOM
@@ -25,14 +26,13 @@ const overlayEl = document.getElementById('overlay');
 const questionTextEl = document.getElementById('question-text');
 const optionsContainerEl = document.getElementById('options-container');
 const timerDisplayEl = document.getElementById('timer-display');
-const stealButtonEl = document.getElementById('steal-button'); // Mantendremos el ID, pero cambiaremos el texto en JS
+const stealButtonEl = document.getElementById('steal-button');
 const finalResultsEl = document.getElementById('final-results');
 const finalRankingsEl = document.getElementById('final-rankings');
 
 const correctSound = document.getElementById('correct-sound');
 const incorrectSound = document.getElementById('incorrect-sound');
 
-// const stealingPlayerNameEl = document.getElementById('stealing-player-name'); // <-- ¡ELIMINADA ESTA REFERENCIA!
 const currentAttemptTeamNameEl = document.getElementById('current-attempt-team-name');
 
 
@@ -44,7 +44,7 @@ function saveGameState() {
         teams: teams,
         scores: scores,
         currentPlayerIndex: currentPlayerIndex,
-        questions: questions,
+        questions: questions, // Guardar el estado completo de las preguntas (respondidas, etc.)
         questionsAnsweredCount: questionsAnsweredCount
     };
     try {
@@ -93,7 +93,8 @@ async function loadTeams(file) {
         if (teams.length === 0) throw new Error('No se encontraron equipos en el archivo.');
         scores = new Array(teams.length).fill(0);
         console.log('Equipos cargados:', teams);
-    } catch (error) {
+    }
+    catch (error) {
         console.error('Error cargando equipos:', error);
         alert('Error cargando los equipos: ' + error.message);
     }
@@ -116,7 +117,7 @@ async function loadQuestions(file) {
 
                 if (!categories.has(category)) {
                     categories.add(category);
-                    questions.push([]);
+                    questions.push([]); // Añadir un nuevo array para la nueva categoría
                 }
 
                 const categoryIndex = Array.from(categories).indexOf(category);
@@ -141,7 +142,8 @@ async function loadQuestions(file) {
         totalQuestions = questions.reduce((count, category) => count + category.length, 0);
         console.log('Preguntas cargadas. Total:', totalQuestions);
 
-    } catch (error) {
+    }
+    catch (error) {
         console.error('Error cargando preguntas:', error);
         alert('Error cargando las preguntas: ' + error.message);
     }
@@ -271,12 +273,11 @@ function handleQuestionClick(categoryIndex, questionIndex) {
     currentAttemptPlayerIndex = currentPlayerIndex;
     stealAttemptQueue = [];
 
-    // --- CAMBIO RECIENTE: Ocultar stealButtonEl, usar 'Turbo de paso' y mostrar equipo activo ---
-    stealButtonEl.classList.add('hidden'); // Siempre oculto al inicio de una pregunta
-    stealButtonEl.textContent = 'Turbo de paso'; // Asegurarse que el texto sea el correcto
+    // Ocultar el botón de "Turbo de paso" al inicio de una nueva pregunta
+    stealButtonEl.classList.add('hidden');
+    stealButtonEl.textContent = 'Contesta otro grupo'; // Asegurar que el texto sea el correcto
     currentAttemptTeamNameEl.textContent = `Grupo actual: ${teams[currentAttemptPlayerIndex]}`;
-    currentAttemptTeamNameEl.classList.remove('hidden');
-    // --- FIN CAMBIO RECIENTE ---
+    currentAttemptTeamNameEl.classList.remove('hidden'); // Mostrar el nombre del equipo actual
 
     displayQuestion(question);
     startTimer(initialTimerDuration, handleInitialTimeout);
@@ -296,7 +297,6 @@ function displayQuestion(question) {
     });
 
     timerDisplayEl.textContent = formatTime(initialTimerDuration);
-    // stealButtonEl.classList.add('hidden'); // Ya se oculta en handleQuestionClick
     overlayEl.classList.add('visible');
 }
 
@@ -344,23 +344,24 @@ function handleAnswerClick(selectedOptionIndex) {
         optionsContainerEl.innerHTML = '';
         resolveQuestion(true);
     } else {
-        playIncorrectSound();
-        optionsContainerEl.innerHTML = '';
+        playIncorrectSound(); // Reproduce el sonido incorrecto inmediatamente
+
+        optionsContainerEl.innerHTML = ''; // Limpia las opciones rápidamente
         if (currentQuestionState === 'initial_attempt') {
             currentQuestionState = 'steal_available';
             timerDisplayEl.textContent = '¡INCORRECTO!';
             prepareStealAttemptQueue();
-            console.log('Intento inicial fallido. Cola de paso:', stealAttemptQueue.map(idx => teams[idx])); // CAMBIO DE LENGUAJE
+            console.log('Intento inicial fallido. Cola de paso:', stealAttemptQueue.map(idx => teams[idx]));
             if (stealAttemptQueue.length > 0) {
                  stealButtonEl.classList.remove('hidden');
             } else {
-                console.log('No hay más equipos para conseguir puntos.'); // CAMBIO DE LENGUAJE
+                console.log('No hay más equipos para conseguir puntos.');
                  resolveQuestion(false);
             }
 
-        } else if (currentQuestionState === 'stealing') { // Este estado ahora significa 'Consiguiendo'
-             timerDisplayEl.textContent = '¡INCORRECTO al conseguir!'; // CAMBIO DE LENGUAJE
-             console.log('Intento de conseguir fallido por:', teams[currentAttemptPlayerIndex], 'Cola restante:', stealAttemptQueue.map(idx => teams[idx])); // CAMBIO DE LENGUAJE
+        } else if (currentQuestionState === 'stealing') {
+             timerDisplayEl.textContent = '¡INCORRECTO al conseguir!';
+             console.log('Intento de conseguir fallido por:', teams[currentAttemptPlayerIndex], 'Cola restante:', stealAttemptQueue.map(idx => teams[idx]));
              handleStealTimeout();
         }
     }
@@ -372,12 +373,12 @@ function handleInitialTimeout() {
         optionsContainerEl.innerHTML = '';
         currentQuestionState = 'steal_available';
         prepareStealAttemptQueue();
-        console.log('Tiempo inicial agotado. Cola de paso:', stealAttemptQueue.map(idx => teams[idx])); // CAMBIO DE LENGUAJE
+        console.log('Tiempo inicial agotado. Cola de paso:', stealAttemptQueue.map(idx => teams[idx]));
 
         if (stealAttemptQueue.length > 0) {
             stealButtonEl.classList.remove('hidden');
         } else {
-            console.log('Tiempo agotado y no hay equipos para conseguir puntos.'); // CAMBIO DE LENGUAJE
+            console.log('Tiempo agotado y no hay equipos para conseguir puntos.');
             resolveQuestion(false);
         }
     }
@@ -394,28 +395,26 @@ function prepareStealAttemptQueue() {
         }
         nextPlayer = (nextPlayer + 1) % teams.length;
     }
-    console.log("Cola de paso preparada:", stealAttemptQueue.map(index => teams[index])); // CAMBIO DE LENGUAJE
+    console.log("Cola de paso preparada:", stealAttemptQueue.map(index => teams[index]));
 }
 
 function handleStealButtonClick() {
     console.log('Botón "Contesta otro grupo" clickeado.');
-    console.log('Estado al clickear:', currentQuestionState, 'Cola de paso:', stealAttemptQueue.map(idx => teams[idx])); // CAMBIO DE LENGUAJE
+    console.log('Estado al clickear:', currentQuestionState, 'Cola de paso:', stealAttemptQueue.map(idx => teams[idx]));
 
     if (currentQuestionState === 'steal_available' && stealAttemptQueue.length > 0) {
         stealButtonEl.classList.add('hidden');
         currentAttemptPlayerIndex = stealAttemptQueue.shift();
-        currentQuestionState = 'stealing'; // El estado sigue siendo 'stealing' internamente para la lógica, pero lo interpretamos como 'consiguiendo'
+        currentQuestionState = 'stealing';
 
-        // --- CAMBIO RECIENTE: Mostrar "Consiguiendo" en lugar de "Robando" ---
-        currentAttemptTeamNameEl.textContent = `¡Consiguiendo: ${teams[currentAttemptPlayerIndex]}!`;
+        currentAttemptTeamNameEl.textContent = `¡Participa: ${teams[currentAttemptPlayerIndex]}!`;
         currentAttemptTeamNameEl.classList.remove('hidden');
-        // --- FIN CAMBIO RECIENTE ---
 
         displayStealOptions();
         startTimer(stealTimerDuration, handleStealTimeout);
-        console.log(`Iniciando intento de conseguir para: ${teams[currentAttemptPlayerIndex]}`); // CAMBIO DE LENGUAJE
+        console.log(`Iniciando intento de conseguir para: ${teams[currentAttemptPlayerIndex]}`);
     } else {
-        console.log('No se pudo iniciar el paso. Estado:', currentQuestionState, 'Cola vacía:', stealAttemptQueue.length === 0); // CAMBIO DE LENGUAJE
+        console.log('No se pudo iniciar el paso. Estado:', currentQuestionState, 'Cola vacía:', stealAttemptQueue.length === 0);
     }
 }
 
@@ -430,7 +429,7 @@ function displayStealOptions() {
         optionButtonEl.addEventListener('click', () => handleAnswerClick(index));
         optionsContainerEl.appendChild(optionButtonEl);
     });
-    console.log('Opciones de paso mostradas.'); // CAMBIO DE LENGUAJE
+    console.log('Opciones de paso mostradas.');
 }
 
 
@@ -438,21 +437,17 @@ function handleStealTimeout() {
      if (currentQuestionState === 'stealing') {
          timerDisplayEl.textContent = `¡Tiempo agotado para ${teams[currentAttemptPlayerIndex]}!`;
          optionsContainerEl.innerHTML = '';
-         console.log('Tiempo de conseguir agotado para:', teams[currentAttemptPlayerIndex], 'Cola restante:', stealAttemptQueue.map(idx => teams[idx])); // CAMBIO DE LENGUAJE
+         console.log('Tiempo de conseguir agotado para:', teams[currentAttemptPlayerIndex], 'Cola restante:', stealAttemptQueue.map(idx => teams[idx]));
 
         if (stealAttemptQueue.length > 0) {
             currentQuestionState = 'steal_available';
             stealButtonEl.classList.remove('hidden');
-            // --- CAMBIO RECIENTE: Actualizar nombre para el siguiente "Turbo de paso" ---
             currentAttemptTeamNameEl.textContent = `Turbo de paso para: ${teams[stealAttemptQueue[0]] || 'Siguiente Equipo'}`;
-            // --- FIN CAMBIO RECIENTE ---
-            console.log("Pasando la oportunidad de paso al siguiente..."); // CAMBIO DE LENGUAJE
+            console.log("Pasando la oportunidad de paso al siguiente...");
         } else {
-            // --- CAMBIO RECIENTE: Ocultar nombre cuando no hay más opciones de paso ---
             currentAttemptTeamNameEl.classList.add('hidden');
-            // --- FIN CAMBIO RECIENTE ---
             resolveQuestion(false);
-            console.log("Todos los intentos de conseguir agotados."); // CAMBIO DE LENGUAJE
+            console.log("Todos los intentos de conseguir agotados.");
         }
      }
 }
@@ -475,9 +470,7 @@ function resolveQuestion(wasCorrect) {
 
     saveGameState();
 
-    // --- CAMBIO RECIENTE: Asegurarse de ocultar el nombre del equipo actual al resolver la pregunta ---
-    currentAttemptTeamNameEl.classList.add('hidden');
-    // --- FIN CAMBIO RECIENTE ---
+    currentAttemptTeamNameEl.classList.add('hidden'); // Ocultar el nombre del equipo actual al resolver
 
     setTimeout(() => {
         overlayEl.classList.remove('visible');
@@ -526,14 +519,14 @@ function displayFinalResults() {
 // --- Funciones de Audio ---
 function playCorrectSound() {
      if (correctSound) {
-        correctSound.currentTime = 0;
+        correctSound.currentTime = 0; // Reinicia el audio para que se pueda reproducir rápidamente de nuevo
         correctSound.play();
      }
 }
 
 function playIncorrectSound() {
     if (incorrectSound) {
-        incorrectSound.currentTime = 0;
+        incorrectSound.currentTime = 0; // Reinicia el audio
         incorrectSound.play();
     }
 }

@@ -1,95 +1,138 @@
+/* Estilos Generales */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f8ff; /* Color de fondo suave */
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Alinea arriba */
-    min-height: 100vh;
+    background-color: #f0f2f5;
+    color: #333;
     margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
+    padding: 2vh 2vw; /* Usar vh y vw para padding responsivo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box; /* Asegurar que padding no añada scrollbars */
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1.5vh 3vw; /* Usar vh y vw para padding */
+    border-radius: 8px;
+    margin-bottom: 2vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 1200px; /* Ancho máximo del encabezado aumentado */
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(1.8em, 5vw, 2.5em); /* Fuente adaptable con clamp */
+}
+
+main {
+    width: 100%;
+    max-width: 1200px; /* Ancho máximo para el contenedor principal aumentado */
+    display: flex;
+    flex-direction: column;
+    gap: 2vh; /* Usar vh para el espacio entre elementos */
 }
 
 .game-container {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 100%;
-    max-width: 1000px; /* Ancho máximo del contenedor */
-    margin-top: 20px; /* Espacio arriba */
-}
-
-.game-title {
-    color: #4a148c; /* Morado oscuro */
-    margin-bottom: 20px;
-}
-
-.score-board {
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: #e1bee7; /* Morado claro */
+    background-color: white;
     border-radius: 8px;
-    display: flex; /* Muestra puntajes en línea */
-    justify-content: space-around; /* Espacio entre equipos */
-    flex-wrap: wrap; /* Envuelve si hay muchos equipos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2vh 2vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
 }
 
-.score-board div {
-    margin: 5px 10px;
-    font-size: 1.1em;
+/* Tablero de Puntajes */
+.score-board {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Permitir que los items se envuelvan */
+    gap: 1vh 1vw; /* Espacio responsivo */
+    padding-bottom: 1.5vh;
+    border-bottom: 1px solid #eee;
+}
+
+.team-score-item {
+    font-size: clamp(1em, 2vw, 1.2em); /* Fuente adaptable */
     font-weight: bold;
-    color: #311b92; /* Azul oscuro */
+    color: #34495e;
+    background-color: #ecf0f1;
+    padding: 0.8vh 1.5vw;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    flex-grow: 1; /* Permite que los items crezcan */
+    text-align: center;
+    min-width: 120px; /* Ancho mínimo para evitar que se aplasten demasiado */
 }
 
+/* Indicador de Turno */
 .turn-indicator {
-    margin-bottom: 20px;
-    font-size: 1.2em;
+    font-size: clamp(1.2em, 3vw, 1.5em); /* Fuente adaptable */
     font-weight: bold;
-    color: #00796b; /* Verde azulado */
+    color: #2c3e50;
+    text-align: center;
+    padding: 1vh 0;
+    margin-bottom: 1vh;
+    background-color: #fcfcfc;
+    border-radius: 5px;
 }
 
+/* Tablero de Juego (Preguntas) */
 .game-board {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columnas para categorías */
-    gap: 10px; /* Espacio entre celdas */
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Adaptar columnas automáticamente */
+    gap: 1vh 1vw; /* Espacio responsivo */
+    margin-top: 1vh;
 }
 
 .category-title {
-    background-color: #7b1fa2; /* Morado */
+    background-color: #3498db;
     color: white;
-    padding: 10px;
-    border-radius: 5px;
     font-weight: bold;
+    padding: 1.2vh 0.5vw;
     text-align: center;
-    grid-column: span 1; /* Ocupa una columna */
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: clamp(0.7em, 1.5vw, 0.9em); /* Fuente adaptable */
+    word-break: break-word; /* Romper palabras largas si es necesario */
 }
 
 .question-cell {
-    background-color: #ba68c8; /* Morado más claro */
+    background-color: #9b59b6; /* Morado para celdas de preguntas */
     color: white;
-    padding: 15px 10px;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 1.1em;
     font-weight: bold;
+    padding: 1.5vh 1vw;
+    text-align: center;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    font-size: clamp(0.9em, 2vw, 1.1em); /* Fuente adaptable */
 }
 
 .question-cell:hover:not(.answered) {
-    background-color: #9c27b0; /* Morado al pasar el ratón */
+    background-color: #8e44ad;
+    transform: translateY(-2px);
 }
 
 .question-cell.answered {
-    background-color: #9e9e9e; /* Gris para preguntas respondidas */
+    background-color: #bdc3c7; /* Gris para preguntas ya respondidas */
     cursor: not-allowed;
     text-decoration: line-through;
-    color: #e0e0e0;
+    color: #7f8c8d;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* Overlay para la pregunta */
+/* Overlay de Pregunta */
 .overlay {
     position: fixed;
     top: 0;
@@ -101,139 +144,162 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s;
 }
 
 .overlay.visible {
-    opacity: 1;
     visibility: visible;
+    opacity: 1;
 }
 
 .question-box {
-    background-color: #fff;
-    padding: 30px;
+    background-color: white;
+    padding: 4vh 4vw; /* Padding responsivo */
     border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    max-width: 700px;
+    width: 90%; /* Ajuste de ancho */
+    max-height: 90vh; /* Altura máxima para no desbordar en pantallas pequeñas */
+    overflow-y: auto; /* Scroll si el contenido es demasiado grande */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh; /* Espacio responsivo */
     text-align: center;
-    max-width: 600px;
-    width: 90%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.current-attempt-team-name {
+    font-size: clamp(1.2em, 3vw, 1.5em); /* Fuente adaptable */
+    font-weight: bold;
+    color: #0056b3;
+    margin-bottom: 1.5vh;
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 1vh;
+    border-bottom: 2px solid #eee;
+    width: 100%;
 }
 
 .question-text {
-    font-size: 1.8em;
-    margin-bottom: 25px;
-    color: #333;
-	font-weight: bold;
+    font-size: clamp(1.4em, 3.5vw, 1.8em); /* Fuente adaptable */
+    margin-bottom: 2.5vh;
+    font-weight: bold; /* Texto de la pregunta en negrita */
 }
 
 .options-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 1.5vh; /* Espacio responsivo */
+    width: 100%;
 }
 
 .option-button {
-    background-color: #ffb300; /* Ámbar */
-    color: #333;
+    background-color: #f39c12; /* Naranja para los botones de opción */
+    color: white;
     border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
-    font-size: 1.1em;
+    padding: 1.5vh 2.5vw;
+    border-radius: 7px;
+    font-size: clamp(1em, 2.5vw, 1.2em); /* Fuente adaptable */
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
 .option-button:hover {
-    background-color: #ffa000; /* Ámbar oscuro */
+    background-color: #e67e22;
+    transform: translateY(-2px);
 }
 
 .timer-display {
-    font-size: 3.5em; /* Aumenta este valor para hacer el tiempo más grande */
+    font-size: clamp(2.5em, 6vw, 3.5em); /* Tamaño grande y adaptable para el tiempo */
     font-weight: bold;
-    color: #e74c3c; /* Un color rojo para el tiempo que corre */
-    margin-top: 20px;
-    margin-bottom: 20px;
+    color: #e74c3c; /* Rojo para el tiempo que corre */
+    margin-top: 2vh;
+    margin-bottom: 2vh;
     text-align: center;
 }
 
 .steal-button {
-    background-color: #00796b; /* Verde azulado */
+    background-color: #1abc9c; /* Verde turquesa para el botón de "turbo de paso" */
     color: white;
     border: none;
-    padding: 15px 25px;
-    border-radius: 5px;
-    font-size: 1.2em;
+    padding: 1.2vh 2.5vw;
+    border-radius: 7px;
+    font-size: clamp(0.9em, 2vw, 1.1em); /* Fuente adaptable */
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 2vh;
 }
 
 .steal-button:hover {
-    background-color: #004d40; /* Verde azulado oscuro */
+    background-color: #16a085;
+    transform: translateY(-2px);
 }
 
+/* Clases de utilidad */
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 /* Resultados Finales */
 .final-results {
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #c8e6c9; /* Verde muy claro */
+    background-color: white;
     border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 4vh;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 5vh;
 }
 
 .final-results h2 {
-    color: #2e7d32; /* Verde oscuro */
-    margin-bottom: 15px;
+    color: #27ae60;
+    font-size: clamp(2em, 5vw, 2.5em); /* Fuente adaptable */
+    margin-bottom: 2vh;
 }
 
-#final-rankings {
+.final-results h3 {
+    color: #34495e;
+    font-size: clamp(1.5em, 3.5vw, 1.8em); /* Fuente adaptable */
+    margin-bottom: 1.5vh;
+}
+
+.final-rankings {
     list-style: none;
     padding: 0;
+    margin: 2vh 0;
 }
 
-#final-rankings li {
-    background-color: #a5d6a7; /* Verde claro */
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 1.1em;
-    color: #1b5e20; /* Verde muy oscuro */
-}
-
-.restart-button {
-    background-color: #1976d2; /* Azul */
-    color: white;
-    border: none;
-    padding: 15px 25px;
-    border-radius: 5px;
-    font-size: 1.2em;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-}
-
-.restart-button:hover {
-    background-color: #1565c0; /* Azul oscuro */
-}
-
-.current-attempt-team-name {
-    font-size: 1.5em; /* Un poco más grande que el texto normal */
+.final-rankings li {
+    font-size: clamp(1.2em, 3vw, 1.4em); /* Fuente adaptable */
     font-weight: bold;
-    color: #0056b3; /* Un color azul que destaque */
-    margin-bottom: 15px;
-    text-align: center;
-    text-transform: uppercase;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #eee; /* Una pequeña línea para separarlo visualmente */
+    padding: 1vh 0;
+    border-bottom: 1px dashed #eee;
 }
 
-/* Puedes añadir este estilo para centrar los textos en el question-box si lo deseas */
-.question-box #timer-display,
-.question-box #question-text {
-    text-align: center;
+.final-rankings li:last-child {
+    border-bottom: none;
+}
+
+.final-results p {
+    margin-top: 3vh;
+    font-size: clamp(0.9em, 2vw, 1.1em); /* Fuente adaptable */
+    color: #555;
+}
+
+/* Media Queries para ajustes más específicos si es necesario */
+@media (max-width: 768px) {
+    .game-board {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); /* Más columnas en tabletas */
+    }
+}
+
+@media (max-width: 480px) {
+    .game-board {
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* Aún más pequeñas en móviles */
+    }
 }

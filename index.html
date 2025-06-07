@@ -2,47 +2,42 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Examen Final</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Juego de Preguntas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>Examen final</h1>
+    </header>
 
-    <div class="game-container">
-        <h1 class="game-title">Examen Final de Primera Comunión</h1>
-
-        <div class="score-board" id="score-board">
-            </div>
-
-        <div class="turn-indicator" id="turn-indicator">
-            </div>
-
-        <div class="game-board" id="game-board">
-            </div>
-
-        <div class="overlay" id="overlay">
-            <div class="question-box" id="question-box">
-			    <div class="current-attempt-team-name" id="current-attempt-team-name"></div>
-                <div class="question-text" id="question-text"></div>
-                <div class="options-container" id="options-container">
+    <main>
+        <div class="game-container">
+            <div class="score-board" id="score-board">
                 </div>
-                <div class="question-box" id="question-box">
-					<div class="question-text" id="question-text"></div>
-					<div class="options-container" id="options-container">
-						</div>
-					<div class="timer-display" id="timer-display"></div>
-					<button class="steal-button hidden" id="steal-button">Contesta otro grupo</button>
-				</div>
-            </div>
+            <div class="turn-indicator" id="turn-indicator">
+                </div>
+            <div class="game-board" id="game-board">
+                </div>
         </div>
+    </main>
 
-        <div class="final-results hidden" id="final-results">
-            <h2>Resultados Finales</h2>
-            <ul id="final-rankings">
-                </ul>
-             <button class="restart-button" onclick="location.reload()">Jugar de nuevo</button>
+    <div class="overlay" id="overlay">
+        <div class="question-box" id="question-box">
+            <div class="current-attempt-team-name" id="current-attempt-team-name"></div>
+            <div class="question-text" id="question-text"></div>
+            <div class="options-container" id="options-container">
+                </div>
+            <div class="timer-display" id="timer-display"></div>
+            <button class="steal-button hidden" id="steal-button">Contesta otro grupo</button>
         </div>
+    </div>
 
+    <div class="final-results hidden" id="final-results">
+        <h2>¡Juego Terminado!</h2>
+        <h3>Clasificación Final:</h3>
+        <ol id="final-rankings">
+            </ol>
+        <p>¡Gracias por jugar!</p>
     </div>
 
     <audio id="correct-sound" src="correct.mp3" preload="auto"></audio>
